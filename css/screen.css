@@ -153,6 +153,19 @@ body {
 }
 
 /*
+  DATUM AANPASSEN
+ */
+
+.c-article__date{
+  color: #5C6366;
+  font-size: 14px;
+
+
+
+
+}
+
+/*
     Elements: Images
     ---
     Default markup for images to make them responsive
@@ -299,12 +312,18 @@ a:focus {
   .c-author__image {
       margin-bottom: 16px;
   }
+  .page_title{font-size: 58px;}
 
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+    div.page_title{font-size: 1000px;
+
+    }
+
+}
 
 /*
     Print styles.
