@@ -51,6 +51,7 @@
 
 
 
+
 /*
     Elements: Page
     ---
@@ -63,13 +64,14 @@ html {
     /*font-family: "Inter UI","Helvetica Neue", Helvetica, arial, sans-serif;*/
     font-family: "Droid Serif", Georgia, serif;
     color: #5C6366;
-    padding: 48px 24px 24px;
+  /*  padding: 48px 24px 24px;*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box; /* BELANGRIJK anders staat het op box-content */
 }
 
 body {
-    max-width: 42em;
+    /*max-width: 42em;*/
     margin: 0 auto;
 }
 
@@ -96,6 +98,7 @@ body {
 
 }
 
+/* border-radius werkt enkel op een virkant -> maakt een cirkel */
 .c-author__image{
   width: 56px;
   height: 56px;
@@ -120,6 +123,34 @@ body {
   line-height: 16px;
 }
 
+
+/*
+    COMPONENTS: ARTICLE
+*/
+
+.c-article__header,
+.c-article__body{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.c-article__header{
+  padding: 24px 24px 0;
+}
+
+.c-article__body{
+  padding: 0 24px;
+}
+
+/*
+    Utilities: max-width
+    ----
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-sm{
+    max-width: 36em;
+}
 
 /*
     Elements: Images
@@ -248,18 +279,28 @@ a:focus {
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    html {
+    .c-article__header {
         padding: 48px 48px 24px;
     }
-    h1 {
-        font-size: 58px;
-        line-height: 64px;
+    .c-article__author {
+        padding-bottom: 24px;
+    }
+    .c-article__body{
+      padding: 24px 48px;
     }
 }
 
 /* Large devices (landscape tablets, desktops, 992px and up) */
+/* Hier zeggen we tegen c-author dat die in plaats van display: flex, block wordt. Waardoor de child elementen weer onder elkaar komen.*/
+@media (min-width: 992px) {
+  .c-author {
+    display: block;
+  }
+  .c-author__image {
+      margin-bottom: 16px;
+  }
 
-@media (min-width: 992px) {}
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
 
@@ -276,6 +317,7 @@ a:focus {
     *,
     *:before,
     *:after {
+        box-sizing: inherit;
         background: transparent !important;
         color: #000 !important;
         /* Black prints faster:
